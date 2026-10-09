@@ -3,7 +3,7 @@ import './App.css'
 
 function App() {
 
-  const toDoList = [ 
+  const todoList = [ 
     {id: 1, title: "Review resources"},
     {id: 2, title: "Take notes"},
     {id: 3, title: "Code out app"},
@@ -19,7 +19,7 @@ function App() {
     <div>
       <h1>Daily Planner!</h1>
       <ul>
-        {toDoList.map(task => <li key = {task.id}>{task.title}</li>)}   
+        {todoList.map(task => <li key = {task.id}>{task.title}</li>)}   
       </ul>
     </div>
   )
