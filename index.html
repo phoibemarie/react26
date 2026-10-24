@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>react26</title>
   </head>
+
+<!-- The <script> is outside the <div id="root"> because the script is responsible for finding the root element and telling React what to render inside it. 
+  
+  This tells the browser to load and execute main.jsx.
+- script tells the browser to execute JavaScript.
+- type="module" allows you to use JavaScript modules, including import and export.
+- src="/src/main.jsx" specifies the file to load. In a Vite project, Vite processes the JSX so the browser can execute it.-->
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
