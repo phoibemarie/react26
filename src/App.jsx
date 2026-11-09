@@ -1,28 +1,25 @@
 
+import { useState } from 'react';
 import TodoList from "./TodoList";
-import TodoForm from './TodoForm.jsx';
-import {useState} from 'react'; //importing the hook feature, functional components that are standalone functions 
-
-
- 
-
-//Lesson 3 - we transferred the todoList object variable into the App JSX and renamed it to todos 
- const todos= [
-    { id: 1, title: "Learn React" },
-    { id: 2, title: "Practice JSX" },
-    { id: 3, title: "Build a Todo App" }
-  ];
-
+import TodoForm from "./TodoForm.jsx";
 
 function App() {
+  const [todoList, setTodoList] = useState([]);
 
-  const [todoList, settoDoList] = useState(todos);  //Use array destructuring to access the state value (todoList) and its accompanying state update function (setTodoList).
+  const addTodo = (todoTitle) => {
+    const newTodo = {
+      id: Date.now(),
+      title: todoTitle,
+    };
+
+    setTodoList(previous => [newTodo, ...previous]);
+  };
 
   return (
     <div>
       <h1>Todo List</h1>
-      <TodoList todoList = {todoList}/>
-      <TodoForm/>
+      <TodoForm onAddTodo={addTodo} />
+      <TodoList todoList={todoList} />
     </div>
   );
 }
